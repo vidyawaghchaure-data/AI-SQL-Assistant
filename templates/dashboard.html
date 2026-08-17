@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard - AI SQL Assistant</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<header class="navbar">
+
+    <div class="logo">
+        <span>⌬</span>
+        AI SQL Assistant
+    </div>
+
+    <nav>
+        <a href="/">Home</a>
+        <a href="/dashboard">Dashboard</a>
+        <a href="/schema">Schema</a>
+        <a href="/history">History</a>
+    </nav>
+
+</header>
+
+
+<main class="dashboard">
+
+    <section class="dashboard-header">
+
+        <div>
+
+            <div class="badge">
+                AI QUERY WORKSPACE
+            </div>
+
+            <h1>
+                Ask your database.
+            </h1>
+
+            <p>
+                Describe what you want to know and AI will generate SQL.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <section class="query-card">
+
+        <label for="question">
+            Ask a question
+        </label>
+
+        <textarea
+            id="question"
+            placeholder="Example: Show all customers from Pune..."
+        ></textarea>
+
+        <div class="button-row">
+
+            <button
+                class="primary-btn"
+                onclick="generateSQL()">
+                ✨ Generate SQL
+            </button>
+
+            <button
+                class="secondary-btn"
+                onclick="clearQuery()">
+                Clear
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <section class="sql-card">
+
+        <div class="section-title">
+
+            <h2>Generated SQL</h2>
+
+            <span id="modeBadge">
+                Waiting
+            </span>
+
+        </div>
+
+        <pre id="sqlOutput">
+Your generated SQL will appear here...
+        </pre>
+
+
+        <div class="button-row">
+
+            <button
+                class="primary-btn"
+                onclick="executeSQL()">
+                ▶ Run Query
+            </button>
+
+            <button
+                class="secondary-btn"
+                onclick="explainSQL()">
+                💡 Explain
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <section class="result-card">
+
+        <div class="section-title">
+
+            <h2>Query Result</h2>
+
+            <span id="resultStatus">
+                No result
+            </span>
+
+        </div>
+
+        <div id="resultContainer">
+
+            <p class="empty">
+                Run a query to see results.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <section class="explanation-card">
+
+        <h2>🤖 AI Explanation</h2>
+
+        <div id="explanation">
+            SQL explanation will appear here.
+        </div>
+
+    </section>
+
+</main>
+
+
+<script src="{{ url_for('static', filename='js/query.js') }}"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Database Schema</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<header class="navbar">
+
+    <div class="logo">
+        <span>⌬</span>
+        AI SQL Assistant
+    </div>
+
+    <nav>
+        <a href="/">Home</a>
+        <a href="/dashboard">Dashboard</a>
+        <a href="/schema">Schema</a>
+        <a href="/history">History</a>
+    </nav>
+
+</header>
+
+
+<main class="page">
+
+    <div class="badge">
+        DATABASE STRUCTURE
+    </div>
+
+    <h1>Database Schema</h1>
+
+    <p>
+        Tables and columns available to the AI assistant.
+    </p>
+
+    <div id="schemaContainer" class="schema-grid">
+        Loading schema...
+    </div>
+
+</main>
+
+
+<script>
+
+async function loadSchema() {
+
+    const response = await fetch("/api/schema-data");
+
+    const data = await response.json();
+
+    const container =
+        document.getElementById("schemaContainer");
+
+    container.innerHTML = "";
+
+    Object.entries(data.schema).forEach(
+        ([table, columns]) => {
+
+        const card =
+            document.createElement("div");
+
+        card.className = "schema-card";
+
+        let html = `
+            <h2>🗄️ ${table}</h2>
+            <div class="columns">
+        `;
+
+        columns.forEach(column => {
+
+            html += `
+                <div class="column">
+
+                    <span>
+                        ${column.name}
+                    </span>
+
+                    <small>
+                        ${column.type}
+                    </small>
+
+                </div>
+            `;
+
+        });
+
+        html += "</div>";
+
+        card.innerHTML = html;
+
+        container.appendChild(card);
+
+    });
+
+}
+
+loadSchema();
+
+</script>
+
+</body>
+</html>

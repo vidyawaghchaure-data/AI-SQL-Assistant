@@ -1,0 +1,1 @@
+console.log("AI SQL Assistant loaded successfully.");

@@ -1,0 +1,74 @@
+[
+    {
+        "question": "How many orders are there for each customer?",
+        "sql": "SELECT\n    COUNT(*) AS total_customers\nFROM customers;",
+        "success": true,
+        "timestamp": "2026-08-17 20:28:48"
+    },
+    {
+        "question": "Show orders above 5000",
+        "sql": "SELECT *\nFROM orders;",
+        "success": true,
+        "timestamp": "2026-08-17 20:27:50"
+    },
+    {
+        "question": "show all customers",
+        "sql": "SELECT *\nFROM customers;",
+        "success": true,
+        "timestamp": "2026-08-17 20:24:01"
+    },
+    {
+        "question": "show all customers",
+        "sql": "SELECT *\nFROM customers;",
+        "success": true,
+        "timestamp": "2026-08-17 20:21:12"
+    },
+    {
+        "question": "show all customers",
+        "sql": "SELECT *\nFROM customers;",
+        "success": true,
+        "timestamp": "2026-08-17 20:19:03"
+    },
+    {
+        "question": "show all customers",
+        "sql": "Error: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sb_secre*****************************7e6e. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}",
+        "success": false,
+        "timestamp": "2026-08-16 21:21:33"
+    },
+    {
+        "question": "show all customers",
+        "sql": "SELECT *\nFROM customers;",
+        "success": true,
+        "timestamp": "2026-08-16 21:02:19"
+    },
+    {
+        "question": "show all customers",
+        "sql": "SELECT *\nFROM customers;",
+        "success": true,
+        "timestamp": "2026-08-16 21:01:23"
+    },
+    {
+        "question": "Show all customers",
+        "sql": "SELECT *\nFROM customers;",
+        "success": true,
+        "timestamp": "2026-08-16 20:53:49"
+    },
+    {
+        "question": "Show all customers ",
+        "sql": "SELECT *\nFROM customers;",
+        "success": true,
+        "timestamp": "2026-08-16 20:50:49"
+    },
+    {
+        "question": "Show all customers from Otur",
+        "sql": "SELECT *\nFROM customers;",
+        "success": true,
+        "timestamp": "2026-08-16 20:49:41"
+    },
+    {
+        "question": "Show the first 5 customers",
+        "sql": "SELECT *\nFROM customers\nLIMIT 10;",
+        "success": false,
+        "timestamp": "2026-08-16 20:30:25"
+    }
+]
